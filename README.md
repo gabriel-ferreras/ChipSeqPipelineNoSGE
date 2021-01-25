@@ -1,5 +1,5 @@
 # ChipSeqPipelineBash
-Bash pipeline for *Arabidopsis thaliana* Chip-Seq data processing and analysis.
+Bash and R pipeline for *Arabidopsis thaliana* Chip-Seq data processing and analysis.
 
 Authors: 
   * Antonio Álvarez Gómez
@@ -8,7 +8,7 @@ Authors:
 
 ## Introduction
 
-The pipeline hereby presented was designed in order to perform a complete processing and analysis of ChIP-seq (Chromatin ImmunopreciPitation sequencing) data from the plant model *Arabidopsis thaliana*. This material is part of the course "Omics technologies and Bioinformatics" given by Francisco J. Romero Campero and Ignacio Pérez Hurtado de Mendoza in the Biochemistry degree at the University of Seville.
+The pipeline hereby presented was designed in order to perform a complete processing and analysis of ChIP-seq (Chromatin ImmunopreciPitation sequencing) data from the plant model *Arabidopsis thaliana*. This material is part of the course "Omics technologies and Bioinformatics" given by Francisco J. Romero Campero and Ignacio Pérez Hurtado de Mendoza in the Biochemistry degree at the University of Seville. This pipeline main coding language is bash (shell), in combination with R for specific steps of the analysis. This version of the software does not include parallelization of tasks with SGE, and it is therefore comparatively slow. If you have access to a cluster computer system running on SGE, we recommend you check out the SGE version of this same repository called [`ChipSeqPipeline`](https://github.com/gabriel-ferreras/ChipSeqPipeline).
 
 ## Definition of terms used
 
