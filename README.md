@@ -29,11 +29,11 @@ For example, one analysis could be composed of two experiments for two related t
     * Map to reference genome ([`bowtie2`](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)).
     * Generate sorted bam file ([`samtools`](http://www.htslib.org)).
     * Submit peak_determination.sh for each sample.
+    * Overlapping target genes for replicates, GO and KEGG enrichment by submitting *exp_analysis.R* for each experiment.
  3. **peak_determination.sh**
     * Peak determination ([`masc2 callpeak`](https://github.com/macs3-project/MACS)).
     * Peak annotation by submitting *target_genes.R* for each sample.
     * Homer-motifs-finding ([`findMotifsGenome.pl`](http://homer.ucsd.edu/homer/ngs/peakMotifs.html)).
-    * Overlapping target genes for replicates, GO and KEGG enrichment by submitting *exp_analysis.R* for each experiment.
  4. **target_genes.R**
     * Install packages if neccesary ([`BiocManager`](https://cran.r-project.org/web/packages/BiocManager/vignettes/BiocManager.html)).
     * Read arguments.
