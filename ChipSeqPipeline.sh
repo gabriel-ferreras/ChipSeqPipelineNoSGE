@@ -219,7 +219,7 @@ do
         echo ""
 	mkdir exp_${k}_result
 	cd exp_${k}_result
-	Rscript ${INS_DIR}/ChipSeqPipeline/exp_analysis.R $k $EXP_DESIGN $NUM_SAMPLES $ANALYSIS $CHR
+	Rscript ${INS_DIR}/ChipSeqPipelineBash/exp_analysis.R $k $EXP_DESIGN $NUM_SAMPLES $ANALYSIS $CHR
 	cd ..
 	((k++))
 done

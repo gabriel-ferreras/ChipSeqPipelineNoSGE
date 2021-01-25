@@ -36,17 +36,19 @@
  
  exp_design_vector <- as.numeric(unlist(strsplit(substr(exp_design, 2, nchar(exp_design)-1), ",")))
 
- 
 ## Grouping the replicates of the experiment:
  
  samples_in_exp <- which(exp_design_vector == experiment)
  exp_all_peaks <- list()
  for (i in samples_in_exp) 
  {
-  exp_all_peaks[i] <- as.vector(read.table(file = paste(analysis_name, "sample", i, "peaks_targetgenes.txt", sep = "_"), header = FALSE))
+  file_name<-paste(analysis_name, "sample", i, "peaks_targetgenes.txt", sep = "_")
+  folder<-paste("sample", i, "result", sep="_")
+  path<-paste("..",folder,file_name,sep="/")
+  exp_all_peaks[i] <- as.vector(read.table(file = path, header = FALSE))
  }
 
- 
+
 ## Extracting the overlapping peaks, that is, the potential regulome of the transcription factor:
  
  experiment_overlap <- calculate.overlap(exp_all_peaks)
@@ -107,11 +109,11 @@
  }
  if (nrow(as.data.frame(BP)) > 0)
  {
-    cnetplot(BP)
+   #cnetplot(BP)
  }
  if (nrow(as.data.frame(BP)) > 1)
  {
-    emapplot(BP)
+    #emapplot(BP)
  }
  if (nrow(as.data.frame(BP)) > 1)
  {
@@ -146,11 +148,11 @@
  }
  if (nrow(as.data.frame(MF)) > 0)
  {
-    cnetplot(MF)
+    #cnetplot(MF)
  }
  if (nrow(as.data.frame(MF)) > 1)
  {
-    emapplot(MF)
+    #emapplot(MF)
  }
  if (nrow(as.data.frame(MF)) > 1)
  {
@@ -185,11 +187,11 @@
  }
  if (nrow(as.data.frame(CC)) > 0)
  {
-    cnetplot(CC)
+    #cnetplot(CC)
  }
  if (nrow(as.data.frame(CC)) > 1)
  {
-    emapplot(CC)
+    #emapplot(CC)
  }
  if (nrow(as.data.frame(CC)) > 1)
  {

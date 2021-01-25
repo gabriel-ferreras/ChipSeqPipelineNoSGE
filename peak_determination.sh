@@ -32,13 +32,13 @@ then
 	echo ""
 	echo " Determining NARROW peaks for sample $j"
 	echo ""
-        macs2 callpeak -t ../samples/chip_$j/chip_$j.bam -c ../samples/control_$j/control_$j.bam -f BAM --outdir . -n ${ANALYSIS}_sample_$j
+        macs2 callpeak -t ../../samples/chip_$j/chip_$j.bam -c ../../samples/control_$j/control_$j.bam -f BAM --outdir . -n ${ANALYSIS}_sample_$j
 
 else
 	echo ""
 	echo " Determining BROAD peaks for sample $j"
 	echo ""
-        macs2 callpeak -t ../samples/chip_$j/chip_$j.bam -c ../samples/control_$j/control_$j.bam -f BAM --outdir . -n ${ANALYSIS}_sample_$j --broad
+        macs2 callpeak -t ../../samples/chip_$j/chip_$j.bam -c ../../samples/control_$j/control_$j.bam -f BAM --outdir . -n ${ANALYSIS}_sample_$j --broad
 
 fi
 
