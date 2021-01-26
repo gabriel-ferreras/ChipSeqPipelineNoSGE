@@ -154,7 +154,7 @@
  }
  if (nrow(as.data.frame(BP)) > 1)
  {
-    emapplot(BP)
+    #emapplot(BP)
  }
  if (nrow(as.data.frame(BP)) > 1)
  {
@@ -193,7 +193,7 @@
  }
  if (nrow(as.data.frame(MF)) > 1)
  {
-    emapplot(MF)
+    #emapplot(MF)
  }
  if (nrow(as.data.frame(MF)) > 1)
  {
@@ -232,7 +232,7 @@
  }
  if (nrow(as.data.frame(CC)) > 1)
  {
-    emapplot(CC)
+    #emapplot(CC)
  }
  if (nrow(as.data.frame(CC)) > 1)
  {
