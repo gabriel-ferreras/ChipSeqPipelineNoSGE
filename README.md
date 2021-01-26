@@ -1,5 +1,5 @@
 # ChipSeqPipelineBash
-Bash pipeline for *Arabidopsis thaliana* Chip-Seq data processing and analysis.
+Bash and R pipeline for *Arabidopsis thaliana* Chip-Seq data processing and analysis.
 
 Authors: 
   * Antonio Álvarez Gómez
@@ -8,7 +8,7 @@ Authors:
 
 ## Introduction
 
-The pipeline hereby presented was designed in order to perform a complete processing and analysis of ChIP-seq (Chromatin ImmunopreciPitation sequencing) data from the plant model *Arabidopsis thaliana*. This material is part of the course "Omics technologies and Bioinformatics" given by Francisco J. Romero Campero and Ignacio Pérez Hurtado de Mendoza in the Biochemistry degree at the University of Seville.
+The pipeline hereby presented was designed in order to perform a complete processing and analysis of ChIP-seq (Chromatin ImmunopreciPitation sequencing) data from the plant model *Arabidopsis thaliana*. This material is part of the course "Omics technologies and Bioinformatics" given by Francisco J. Romero Campero and Ignacio Pérez Hurtado de Mendoza in the Biochemistry degree at the University of Seville. This pipeline main coding language is bash (shell), in combination with R for specific steps of the analysis. This version of the software does not include parallelization of tasks with SGE, and it is therefore comparatively slow. If you have access to a cluster computer system running on SGE, we recommend you check out the SGE version of this same repository called [`ChipSeqPipeline`](https://github.com/gabriel-ferreras/ChipSeqPipeline).
 
 ## Definition of terms used
 
@@ -29,11 +29,11 @@ For example, one analysis could be composed of two experiments for two related t
     * Map to reference genome ([`bowtie2`](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)).
     * Generate sorted bam file ([`samtools`](http://www.htslib.org)).
     * Submit peak_determination.sh for each sample.
+    * Overlapping target genes for replicates, GO and KEGG enrichment by submitting *exp_analysis.R* for each experiment.
  3. **peak_determination.sh**
     * Peak determination ([`masc2 callpeak`](https://github.com/macs3-project/MACS)).
     * Peak annotation by submitting *target_genes.R* for each sample.
     * Homer-motifs-finding ([`findMotifsGenome.pl`](http://homer.ucsd.edu/homer/ngs/peakMotifs.html)).
-    * Overlapping target genes for replicates, GO and KEGG enrichment by submitting *exp_analysis.R* for each experiment.
  4. **target_genes.R**
     * Install packages if neccesary ([`BiocManager`](https://cran.r-project.org/web/packages/BiocManager/vignettes/BiocManager.html)).
     * Read arguments.
