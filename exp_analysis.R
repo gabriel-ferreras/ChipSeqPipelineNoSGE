@@ -136,7 +136,7 @@
  BP_name<-paste(analysis_name, "experiment", experiment, "BP_GOs.txt", sep = "_")
  write.table(BP, file = BP_name, sep = ",")
  
- pdf(file = "BP_GO_plots.pdf", width = 10, height = 10, onefile=TRUE) 
+ pdf(file = "BP_GO_plots.pdf", width = 15, height = 15, onefile=TRUE) 
  if (nrow(as.data.frame(BP)) > 0)
  {
     print("")
@@ -175,7 +175,7 @@
  
  MF_name<-paste(analysis_name, "experiment", experiment, "MF_GOs.txt", sep = "_")
  write.table(MF, file = MF_name, sep = ",")
- pdf(file = "MF_GO_plots.pdf", width = 10, height = 10, onefile=TRUE)
+ pdf(file = "MF_GO_plots.pdf", width = 15, height = 15, onefile=TRUE)
  if (nrow(as.data.frame(MF)) > 0)
  {
     print("")
@@ -214,7 +214,7 @@
  
  CC_name<-paste(analysis_name, "experiment", experiment, "CC_GOs.txt", sep = "_")
  write.table(CC, file = CC_name, sep = ",")
- pdf(file = "CC_GO_plots.pdf", width = 10, height = 10, onefile=TRUE)
+ pdf(file = "CC_GO_plots.pdf", width = 15, height = 15, onefile=TRUE)
  if (nrow(as.data.frame(CC)) > 0)
  {
     print("")
