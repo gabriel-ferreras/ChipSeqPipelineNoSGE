@@ -167,6 +167,7 @@
     print("")
  }
  dev.off()
+
  MF <- enrichGO(gene = regulome,
                 OrgDb = "org.At.tair.db",
                 keyType = "TAIR", 
@@ -206,6 +207,7 @@
     print("")
  }
  dev.off()
+
  CC <- enrichGO(gene = regulome,
                 OrgDb = "org.At.tair.db",
                 keyType = "TAIR", 
@@ -245,6 +247,7 @@
     print("")
  }
  dev.off()
+
 ## KEGG pathway enrichment:
  
  kk <- enrichKEGG(gene = regulome,

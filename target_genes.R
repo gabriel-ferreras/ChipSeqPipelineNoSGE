@@ -63,6 +63,7 @@
                 title="Distribution of genomic loci relative to TSS",
                 ylab = "Genomic Loci (%) (5' -> 3')")
   dev.off()
+
 ## Converting annotation to data frame and exporting:
   peakannotation <- as.data.frame(peakAnno)
   peak.target.genes <- peakannotation$geneId[grepl("Promoter", peakannotation$annotation)]
