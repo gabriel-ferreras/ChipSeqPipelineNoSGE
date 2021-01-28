@@ -117,6 +117,8 @@ echo "======================"
 echo "| CREATING WORKSPACE |"
 echo "======================"
 echo ""
+echo "      Making directories"
+
 cd $WORK_DIR
 mkdir $ANALYSIS
 cd $ANALYSIS
@@ -132,6 +134,9 @@ done
 cd ..
 
 #Copying the data.
+echo ""
+echo "      Copying input data from the indicated paths"
+echo ""
 cp $ANNOTATION $WORK_DIR/$ANALYSIS/annotation/annotation.gtf
 cp $GENOME $WORK_DIR/$ANALYSIS/genome/genome.fa
 if [ $PAIRED -eq 0 ]
@@ -145,7 +150,6 @@ then
         	((i++))
 	done
 else
-	echo "UNPAIRED"
 	i=1
         while [ $i -le $NUM_SAMPLES ]
         do
@@ -181,30 +185,35 @@ cd ../results
 i=1
 while [ $i -le $NUM_SAMPLES ]
 do
-        echo "Sent to processing chip $i"
+	echo "------------------------------"
+        echo "  Sent to processing chip $i  "
+	echo "------------------------------"
 	bash $INS_DIR/ChipSeqPipelineNoSGE/chip_sample_processing.sh $WORK_DIR/$ANALYSIS/samples/chip_$i $i $NUM_SAMPLES $INS_DIR $ANALYSIS $BROAD $PAIRED $UPSTREAM $DOWNSTREAM $MOTIFLENGTH $MOTIFSIZE $NUM_EXP $EXP_DESIGN $CHR
-        echo "Sent to processing control $i"
+        echo "---------------------------------"
+        echo "  Sent to processing control $i  "
+        echo "---------------------------------"
 	bash $INS_DIR/ChipSeqPipelineNoSGE/control_sample_processing.sh $WORK_DIR/$ANALYSIS/samples/control_$i $i $NUM_SAMPLES $INS_DIR $ANALYSIS $BROAD $PAIRED $UPSTREAM $DOWNSTREAM $MOTIFLENGTH $MOTIFSIZE $NUM_EXP $EXP_DESIGN $CHR
 	((i++))
 done
 
-#Peak calling for each sample.
+#Peak calling, annotation and motif determination for each sample.
 echo ""
-echo "======================="
-echo "|    PEAK CALLING     |"
-echo "======================="
+echo "==============================================================="
+echo "|    PEAK CALLING AND ANNOTATION, AND MOTIF DETERMINATION     |"
+echo "==============================================================="
 echo ""
 
 j=1
 while [ $j -le $NUM_SAMPLES ]
 do
-	echo ""
-	echo "   Continuing with peak determination of sample $j, you are halfway there!"
-	echo ""
+	echo "----------------------------------------------------------------------------"
+	echo "   Continuing with peak determination of sample $j, you are halfway there!  "
+	echo "----------------------------------------------------------------------------"
 	bash $INS_DIR/ChipSeqPipelineNoSGE/peak_determination.sh $WORK_DIR/$ANALYSIS/results $NUM_SAMPLES $ANALYSIS $BROAD $INS_DIR $UPSTREAM $DOWNSTREAM $MOTIFLENGTH $MOTIFSIZE $NUM_EXP $EXP_DESIGN $j $CHR
 	((j++))
 done
 
+#Global analysis of overlapping genes and GO/KEGG enrichment for each experiment.
 echo ""
 echo "================================"
 echo "|  EXPERIMENT GLOBAL ANALYSIS  |"
@@ -214,9 +223,9 @@ echo ""
 k=1
 while [ $k -le $NUM_EXP ]
 do
-        echo ""
-        echo "   Continuing with global analysis of experimet $k, you are almost done!"
-        echo ""
+        echo "--------------------------------------------------------------------------"
+        echo "   Continuing with global analysis of experimet $k, you are almost done!  "
+        echo "--------------------------------------------------------------------------"
 	mkdir exp_${k}_result
 	cd exp_${k}_result
 	Rscript ${INS_DIR}/ChipSeqPipelineNoSGE/exp_analysis.R $k $EXP_DESIGN $NUM_SAMPLES $ANALYSIS $CHR
@@ -224,9 +233,10 @@ do
 	((k++))
 done
 
-echo ""
-echo "Analysis completed!!"
-echo ""
+echo "--------------------------------"
+echo "      Analysis completed!!      "
+echo "   We did it Joe!! We did it!!  "
+echo "--------------------------------"
 
 
 

@@ -8,8 +8,9 @@
 # Antonio Álvarez Gómez (alvarezgomezantonio@gmail.com)
 # Gabriel Ferreras Garrucho (gabrifg10@gmail.com)
 # Helena Victoria Cotán (hevico99@gmail.com)
-
-
+print("")
+print("### This is the exp_analysis.R script! Let's get this over with shall we? ###")
+print("")
 ## Install the following packages if not already installed:
 
  # install.packages("VennDiagram")
@@ -135,8 +136,7 @@
  
  BP_name<-paste(analysis_name, "experiment", experiment, "BP_GOs.txt", sep = "_")
  write.table(BP, file = BP_name, sep = ",")
- 
- pdf(file = "BP_GO_plots.pdf", width = 15, height = 15, onefile=TRUE) 
+ pdf(file = "BP_GO_plots_1.pdf", width = 7, height = 7, onefile=TRUE) 
  if (nrow(as.data.frame(BP)) > 0)
  {
     print("")
@@ -148,6 +148,8 @@
  {
     dotplot(BP, showCategory = 20)
  }
+ dev.off()
+ pdf(file = "BP_GO_plots_2.pdf", width = 15, height = 15, onefile=TRUE)
  if (nrow(as.data.frame(BP)) > 0)
  {
    cnetplot(BP)
@@ -160,13 +162,13 @@
  {
     goplot(BP)
  }
+ dev.off()
  if (nrow(as.data.frame(BP)) == 0)
  {
     print("")
-    print("NO BIOLOGICAL PROCESS ENRICHMENT FOUND")
+    print("NO BIOLOGICAL PROCESS ENRICHMENT FOUND!!")
     print("")
  }
- dev.off()
 
  MF <- enrichGO(gene = regulome,
                 OrgDb = "org.At.tair.db",
@@ -176,7 +178,7 @@
  
  MF_name<-paste(analysis_name, "experiment", experiment, "MF_GOs.txt", sep = "_")
  write.table(MF, file = MF_name, sep = ",")
- pdf(file = "MF_GO_plots.pdf", width = 15, height = 15, onefile=TRUE)
+ pdf(file = "MF_GO_plots_1.pdf", width = 7, height = 7, onefile=TRUE)
  if (nrow(as.data.frame(MF)) > 0)
  {
     print("")
@@ -188,6 +190,8 @@
  {
     dotplot(MF, showCategory = 20)
  }
+ dev.off()
+ pdf(file = "MF_GO_plots_2.pdf", width = 15, height = 15, onefile=TRUE)
  if (nrow(as.data.frame(MF)) > 0)
  {
     cnetplot(MF)
@@ -200,13 +204,13 @@
  {
     goplot(MF)
  }
+ dev.off()
  if (nrow(as.data.frame(MF)) == 0)
  {
     print("")
-    print("NO MOLECULAR FUNCTION ENRICHMENT FOUND")
+    print("NO MOLECULAR FUNCTION ENRICHMENT FOUND!!")
     print("")
  }
- dev.off()
 
  CC <- enrichGO(gene = regulome,
                 OrgDb = "org.At.tair.db",
@@ -216,7 +220,7 @@
  
  CC_name<-paste(analysis_name, "experiment", experiment, "CC_GOs.txt", sep = "_")
  write.table(CC, file = CC_name, sep = ",")
- pdf(file = "CC_GO_plots.pdf", width = 15, height = 15, onefile=TRUE)
+ pdf(file = "CC_GO_plots_1.pdf", width = 7, height = 7, onefile=TRUE)
  if (nrow(as.data.frame(CC)) > 0)
  {
     print("")
@@ -228,6 +232,8 @@
  {
     dotplot(CC, showCategory = 20)
  }
+ dev.off()
+ pdf(file = "CC_GO_plots_2.pdf", width = 15, height = 15, onefile=TRUE)
  if (nrow(as.data.frame(CC)) > 0)
  {
     cnetplot(CC)
@@ -240,13 +246,14 @@
  {
     goplot(CC)
  }
+ dev.off()
+
  if (nrow(as.data.frame(CC)) == 0)
  {
     print("")
-    print("NO CELLULAR COMPONENT ENRICHMENT FOUND")
+    print("NO CELLULAR COMPONENT ENRICHMENT FOUND!!")
     print("")
  }
- dev.off()
 
 ## KEGG pathway enrichment:
  
@@ -258,11 +265,11 @@
 
  kk_name<-paste(analysis_name, "experiment", experiment, "KEGGs.txt", sep = "_")
  write.table(kk, file = kk_name, sep = ",")
- pdf(file = "KEGG_plots.pdf", width = 10, height = 10, onefile=TRUE)
+ pdf(file = "KEGG_plots.pdf", width = 7, height = 7, onefile=TRUE)
  if (nrow(as.data.frame(kk)) > 0)
  {
     print("")
-    print("KEGG ENRICHMENT FOUND")
+    print("KEGG ENRICHMENT FOUND!!")
     print("")
     for (i in 1:nrow(as.data.frame(kk)))
     {
@@ -284,7 +291,10 @@
  if (nrow(as.data.frame(kk)) == 0)
  {
     print("")
-    print("NO KEGG ENRICHMENT FOUND")
+    print("NO KEGG ENRICHMENT FOUND!!")
     print("")
  }
  dev.off()
+print("")
+print("### exp_analysis.R script done! Don't forget to check out the plots! ###")
+print("")

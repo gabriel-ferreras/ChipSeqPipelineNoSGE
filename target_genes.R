@@ -6,7 +6,9 @@
     # Antonio Álvarez Gómez (alvarezgomezantonio@gmail.com)
     # Gabriel Ferreras Garrucho (gabrifg10@gmail.com)
     # Helena Victoria Cotán (hevico99@gmail.com)
-
+print("")
+print("### This is the target_genes.R script! Don't mind me it'll just be a moment ###")
+print("")
 ## Install the following packages if not already installed:
 
   #if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -73,3 +75,6 @@
   summit.target.genes <- summitannotation$geneId[grepl("Promoter", summitannotation$annotation)]
   write(x = summit.target.genes, file = summit_output)
 
+print("")
+print("###target_genes.R script done!###")
+print("")
