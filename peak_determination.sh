@@ -53,13 +53,13 @@ then
 	echo ""
 	echo " Annotating NARROW peaks for sample $j"
 	echo ""
-	Rscript ${INS_DIR}/ChipSeqPipeline/target_genes.R ${ANALYSIS}_sample_${j}_peaks.narrowPeak ${ANALYSIS}_sample_${j}_summits.bed $UPSTREAM $DOWNSTREAM ${ANALYSIS}_sample_${j}_peaks_targetgenes.txt ${ANALYSIS}_sample_${j}_summits_targetgenes.txt
+	Rscript ${INS_DIR}/ChipSeqPipelineNoSGE/target_genes.R ${ANALYSIS}_sample_${j}_peaks.narrowPeak ${ANALYSIS}_sample_${j}_summits.bed $UPSTREAM $DOWNSTREAM ${ANALYSIS}_sample_${j}_peaks_targetgenes.txt ${ANALYSIS}_sample_${j}_summits_targetgenes.txt
 
 else
 	echo ""
 	echo " Annotating BROAD peaks for sample $j"
 	echo ""
-	Rscript ${INS_DIR}/ChipSeqPipeline/target_genes.R ${ANALYSIS}_sample_${j}_peaks.broadPeak ${ANALYSIS}_sample_${j}_summits.bed $UPSTREAM $DOWNSTREAM ${ANALYSIS}_sample_${j}_peaks_targetgenes.txt ${ANALYSIS}_sample_${j}_summits_targetgenes.txt
+	Rscript ${INS_DIR}/ChipSeqPipelineNoSGE/target_genes.R ${ANALYSIS}_sample_${j}_peaks.broadPeak ${ANALYSIS}_sample_${j}_summits.bed $UPSTREAM $DOWNSTREAM ${ANALYSIS}_sample_${j}_peaks_targetgenes.txt ${ANALYSIS}_sample_${j}_summits_targetgenes.txt
 fi
 
 echo ""

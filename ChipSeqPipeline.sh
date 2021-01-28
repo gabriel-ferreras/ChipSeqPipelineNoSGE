@@ -182,9 +182,9 @@ i=1
 while [ $i -le $NUM_SAMPLES ]
 do
         echo "Sent to processing chip $i"
-	bash $INS_DIR/ChipSeqPipelineBash/chip_sample_processing.sh $WORK_DIR/$ANALYSIS/samples/chip_$i $i $NUM_SAMPLES $INS_DIR $ANALYSIS $BROAD $PAIRED $UPSTREAM $DOWNSTREAM $MOTIFLENGTH $MOTIFSIZE $NUM_EXP $EXP_DESIGN $CHR
+	bash $INS_DIR/ChipSeqPipelineNoSGE/chip_sample_processing.sh $WORK_DIR/$ANALYSIS/samples/chip_$i $i $NUM_SAMPLES $INS_DIR $ANALYSIS $BROAD $PAIRED $UPSTREAM $DOWNSTREAM $MOTIFLENGTH $MOTIFSIZE $NUM_EXP $EXP_DESIGN $CHR
         echo "Sent to processing control $i"
-	bash $INS_DIR/ChipSeqPipelineBash/control_sample_processing.sh $WORK_DIR/$ANALYSIS/samples/control_$i $i $NUM_SAMPLES $INS_DIR $ANALYSIS $BROAD $PAIRED $UPSTREAM $DOWNSTREAM $MOTIFLENGTH $MOTIFSIZE $NUM_EXP $EXP_DESIGN $CHR
+	bash $INS_DIR/ChipSeqPipelineNoSGE/control_sample_processing.sh $WORK_DIR/$ANALYSIS/samples/control_$i $i $NUM_SAMPLES $INS_DIR $ANALYSIS $BROAD $PAIRED $UPSTREAM $DOWNSTREAM $MOTIFLENGTH $MOTIFSIZE $NUM_EXP $EXP_DESIGN $CHR
 	((i++))
 done
 
@@ -201,7 +201,7 @@ do
 	echo ""
 	echo "   Continuing with peak determination of sample $j, you are halfway there!"
 	echo ""
-	bash $INS_DIR/ChipSeqPipelineBash/peak_determination.sh $WORK_DIR/$ANALYSIS/results $NUM_SAMPLES $ANALYSIS $BROAD $INS_DIR $UPSTREAM $DOWNSTREAM $MOTIFLENGTH $MOTIFSIZE $NUM_EXP $EXP_DESIGN $j $CHR
+	bash $INS_DIR/ChipSeqPipelineNoSGE/peak_determination.sh $WORK_DIR/$ANALYSIS/results $NUM_SAMPLES $ANALYSIS $BROAD $INS_DIR $UPSTREAM $DOWNSTREAM $MOTIFLENGTH $MOTIFSIZE $NUM_EXP $EXP_DESIGN $j $CHR
 	((j++))
 done
 
@@ -219,7 +219,7 @@ do
         echo ""
 	mkdir exp_${k}_result
 	cd exp_${k}_result
-	Rscript ${INS_DIR}/ChipSeqPipelineBash/exp_analysis.R $k $EXP_DESIGN $NUM_SAMPLES $ANALYSIS $CHR
+	Rscript ${INS_DIR}/ChipSeqPipelineNoSGE/exp_analysis.R $k $EXP_DESIGN $NUM_SAMPLES $ANALYSIS $CHR
 	cd ..
 	((k++))
 done
