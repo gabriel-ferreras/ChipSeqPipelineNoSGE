@@ -41,10 +41,10 @@ print("")
  
  samples_in_exp <- which(exp_design_vector == experiment)
  exp_all_peaks <- list()
- for (i in samples_in_exp) 
+ for (i in 1:length(samples_in_exp)) 
  {
-  file_name<-paste(analysis_name, "sample", i, "peaks_targetgenes.txt", sep = "_")
-  folder<-paste("sample", i, "result", sep="_")
+  file_name<-paste(analysis_name, "sample", samples_in_exp[i], "peaks_targetgenes.txt", sep = "_")
+  folder<-paste("sample", samples_in_exp[i], "result", sep="_")
   path<-paste("..",folder,file_name,sep="/")
   exp_all_peaks[i] <- as.vector(read.table(file = path, header = FALSE))
  }
