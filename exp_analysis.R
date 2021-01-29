@@ -178,7 +178,7 @@ print("")
  
  MF_name<-paste(analysis_name, "experiment", experiment, "MF_GOs.txt", sep = "_")
  write.table(MF, file = MF_name, sep = ",")
- pdf(file = "MF_GO_plots_1.pdf", width = 7, height = 7, onefile=TRUE)
+ pdf(file = "MF_GO_plots_1.pdf", width = 10, height = 7, onefile=TRUE)
  if (nrow(as.data.frame(MF)) > 0)
  {
     print("")

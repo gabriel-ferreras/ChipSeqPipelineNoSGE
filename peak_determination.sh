@@ -62,7 +62,7 @@ echo "  --Finding motives for sample $j. OK I lied this isn't gonna be that quic
 echo ""
 mkdir motifs_sample_${j}
 cd motifs_sample_${j}
-#findMotifsGenome.pl ../${ANALYSIS}_sample_${j}_summits.bed tair10 . -len $MOTIFLENGTH -size $MOTIFSIZE
+findMotifsGenome.pl ../${ANALYSIS}_sample_${j}_summits.bed tair10 . -len $MOTIFLENGTH -size $MOTIFSIZE
 echo ""
 echo "  --It wasn't that bad, was it?"
 echo ""
