@@ -1,4 +1,4 @@
-# ChipSeqPipelineBash
+# ChipSeqPipelineNoSGE
 Bash and R pipeline for *Arabidopsis thaliana* Chip-Seq data processing and analysis.
 
 Authors: 
@@ -24,12 +24,12 @@ For example, one analysis could be composed of two experiments for two related t
    * Copy the data.
    * Create a genome index ([`bowtie2-build`](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)).
    * Submit chip_sample_processing.sh and control_sample_processing for each sample.
+   * Submit peak_determination.sh for each sample.
+   * Submit *exp_analysis.R* for each experiment.
  2. **chip_sample_processing.sh** and **control_sample_processing.sh** 
     * Quality control ([`fastqc`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)).
     * Map to reference genome ([`bowtie2`](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)).
     * Generate sorted bam file ([`samtools`](http://www.htslib.org)).
-    * Submit peak_determination.sh for each sample.
-    * Overlapping target genes for replicates, GO and KEGG enrichment by submitting *exp_analysis.R* for each experiment.
  3. **peak_determination.sh**
     * Peak determination ([`masc2 callpeak`](https://github.com/macs3-project/MACS)).
     * Peak annotation by submitting *target_genes.R* for each sample.
