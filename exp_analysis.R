@@ -8,9 +8,11 @@
 # Antonio Álvarez Gómez (alvarezgomezantonio@gmail.com)
 # Gabriel Ferreras Garrucho (gabrifg10@gmail.com)
 # Helena Victoria Cotán (hevico99@gmail.com)
+
 print("")
-print("### This is the exp_analysis.R script! Let's get this over with shall we? ###")
+print(" ### This is the exp_analysis.R script! Let's get this over with shall we? ### ")
 print("")
+
 ## Install the following packages if not already installed:
 
  # install.packages("VennDiagram")
@@ -295,6 +297,7 @@ print("")
     print("")
  }
  dev.off()
+ 
 print("")
-print("### exp_analysis.R script done! Don't forget to check out the plots! ###")
+print(" ### exp_analysis.R script done! Don't forget to check out the plots! ### ")
 print("")
