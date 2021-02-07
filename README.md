@@ -100,7 +100,7 @@ The steps you need to follow are these described:
   3. Introduce the following command
 
       ```bash
-      git clone https://github.com/gabriel-ferreras/ChipSeqPipeline.git
+      git clone https://github.com/gabriel-ferreras/ChipSeqPipelineNoSGE.git
       ```
 
 ## Running pipeline
