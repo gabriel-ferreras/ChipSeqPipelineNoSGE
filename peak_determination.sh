@@ -65,6 +65,7 @@ then
 	mkdir motifs_sample_${j}
 	cd motifs_sample_${j}
 	findMotifsGenome.pl ../${ANALYSIS}_sample_${j}_summits.bed tair10 . -len $MOTIFLENGTH -size $MOTIFSIZE
+	cd ..
 	echo ""
 	echo "  --It wasn't that bad, was it?"
 	echo ""
@@ -72,6 +73,5 @@ fi
 echo ""
 echo "  --Peak determination for sample $j done!!"
 echo ""
-cd ..
 cd ..
 

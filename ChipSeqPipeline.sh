@@ -141,10 +141,8 @@ cd ..
 echo ""
 echo "      Copying input data from the indicated paths"
 echo ""
-cp $ANNOTATION $WORK_DIR/$ANALYSIS/annotation/annotation.gtf.gz
-gunzip $WORK_DIR/$ANALYSIS/annotation/annotation.gtf.gz
-cp $GENOME $WORK_DIR/$ANALYSIS/genome/genome.fa.gz
-gunzip $WORK_DIR/$ANALYSIS/genome/genome.fa.gz
+cp $ANNOTATION $WORK_DIR/$ANALYSIS/annotation/annotation.gtf
+cp $GENOME $WORK_DIR/$ANALYSIS/genome/genome.fa
 if [ $PAIRED -eq 0 ]
 then
 	i=1
