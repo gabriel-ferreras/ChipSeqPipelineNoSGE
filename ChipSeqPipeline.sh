@@ -78,7 +78,7 @@ then
 	CONTROLS=()
 	i=0
 	while [ $i -lt $NUM_SAMPLES ]
-		do
+	do
         		j=$(( $i + 1 ))
         		CONTROLS[$i]=$(grep path_control_$j: $PARAMS | awk '{ print $2 }')
         		echo "      Control $j in ${CONTROLS[$i]}"
