@@ -53,19 +53,22 @@ else
 	echo ""
 	echo "  --Annotating BROAD peaks for sample $j"
 	echo ""
-	Rscript ${INS_DIR}/ChipSeqPipelineNoSGE/target_genes.R ${ANALYSIS}_sample_${j}_peaks.broadPeak ${ANALYSIS}_sample_${j}_summits.bed $UPSTREAM $DOWNSTREAM ${ANALYSIS}_sample_${j}_peaks_targetgenes.txt ${ANALYSIS}_sample_${j}_summits_targetgenes.txt
+	Rscript ${INS_DIR}/ChipSeqPipelineNoSGE/target_genes_broad.R ${ANALYSIS}_sample_${j}_peaks.broadPeak $UPSTREAM $DOWNSTREAM ${ANALYSIS}_sample_${j}_peaks_targetgenes.txt
 fi
 
-## Homer motif finding
-echo ""
-echo "  --Finding motives for sample $j. OK I lied this isn't gonna be that quick..."
-echo ""
-mkdir motifs_sample_${j}
-cd motifs_sample_${j}
-findMotifsGenome.pl ../${ANALYSIS}_sample_${j}_summits.bed tair10 . -len $MOTIFLENGTH -size $MOTIFSIZE
-echo ""
-echo "  --It wasn't that bad, was it?"
-echo ""
+## Homer motif finding, only for narrow peaks.
+if [ $BROAD -eq 0 ]
+then
+	echo ""
+	echo "  --Finding motives for sample $j. OK I lied this isn't gonna be that quick..."
+	echo ""
+	mkdir motifs_sample_${j}
+	cd motifs_sample_${j}
+	findMotifsGenome.pl ../${ANALYSIS}_sample_${j}_summits.bed tair10 . -len $MOTIFLENGTH -size $MOTIFSIZE
+	echo ""
+	echo "  --It wasn't that bad, was it?"
+	echo ""
+fi
 echo ""
 echo "  --Peak determination for sample $j done!!"
 echo ""
